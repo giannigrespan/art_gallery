@@ -1,0 +1,24 @@
+{
+  "name": "art-gallery-manager",
+  "version": "1.0.0",
+  "description": "Sistema di gestione per agenti di commercio nel settore gallerie d'arte",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 8080 -o",
+    "start": "npx http-server -p 8080"
+  },
+  "keywords": [
+    "art-gallery",
+    "crm",
+    "sales-management",
+    "invoicing"
+  ],
+  "author": "Gianni Gresplan",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.1"
+  }
+}

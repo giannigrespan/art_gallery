@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery Manager</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/style.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2C3E50',
+                        secondary: '#95A5A6',
+                        accent: '#E74C3C',
+                        success: '#27AE60',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Sidebar Navigation -->
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 bg-primary text-white flex flex-col">
+            <div class="p-6 border-b border-gray-700">
+                <h1 class="text-2xl font-bold">Art Gallery</h1>
+                <p class="text-sm text-gray-400">Manager</p>
+            </div>
+
+            <nav class="flex-1 p-4">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#dashboard" class="nav-link active flex items-center p-3 rounded-lg hover:bg-gray-700 transition">
+                            <span class="mr-3">📊</span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#opere" class="nav-link flex items-center p-3 rounded-lg hover:bg-gray-700 transition">
+                            <span class="mr-3">🎨</span>
+                            <span>Opere d'Arte</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#clienti" class="nav-link flex items-center p-3 rounded-lg hover:bg-gray-700 transition">
+                            <span class="mr-3">👥</span>
+                            <span>Clienti</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#vendite" class="nav-link flex items-center p-3 rounded-lg hover:bg-gray-700 transition">
+                            <span class="mr-3">💰</span>
+                            <span>Vendite</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#economia" class="nav-link flex items-center p-3 rounded-lg hover:bg-gray-700 transition">
+                            <span class="mr-3">💼</span>
+                            <span>Economia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#fatture" class="nav-link flex items-center p-3 rounded-lg hover:bg-gray-700 transition">
+                            <span class="mr-3">📄</span>
+                            <span>Fatture</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#calendario" class="nav-link flex items-center p-3 rounded-lg hover:bg-gray-700 transition">
+                            <span class="mr-3">📅</span>
+                            <span>Calendario</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#report" class="nav-link flex items-center p-3 rounded-lg hover:bg-gray-700 transition">
+                            <span class="mr-3">📈</span>
+                            <span>Report</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="p-4 border-t border-gray-700">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
+                        <span>GG</span>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm font-semibold">Gianni Gresplan</p>
+                        <p class="text-xs text-gray-400">Agente d'Arte</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <!-- Top Bar -->
+            <header class="bg-white shadow-sm p-4 flex justify-between items-center">
+                <div>
+                    <h2 id="page-title" class="text-2xl font-bold text-primary">Dashboard</h2>
+                    <p id="page-subtitle" class="text-sm text-gray-500">Panoramica generale</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-opacity-90 transition">
+                        Sincronizza Dati
+                    </button>
+                </div>
+            </header>
+
+            <!-- Page Content Container -->
+            <div id="page-content" class="p-6">
+                <!-- Il contenuto viene caricato dinamicamente tramite JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-4 right-4 z-50"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 flex items-center space-x-3">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+            <span class="text-primary font-semibold">Caricamento...</span>
+        </div>
+    </div>
+
+    <!-- Config Template (da personalizzare) -->
+    <script src="src/js/config.example.js"></script>
+
+    <!-- Core JavaScript -->
+    <script src="src/js/app.js"></script>
+    <script src="src/js/router.js"></script>
+    <script src="src/js/api.js"></script>
+
+    <!-- Components -->
+    <script src="src/components/dashboard.js"></script>
+    <script src="src/components/opere.js"></script>
+    <script src="src/components/clienti.js"></script>
+    <script src="src/components/vendite.js"></script>
+    <script src="src/components/economia.js"></script>
+    <script src="src/components/fatture.js"></script>
+    <script src="src/components/calendario.js"></script>
+    <script src="src/components/report.js"></script>
+
+</body>
+</html>
