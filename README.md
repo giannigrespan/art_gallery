@@ -1,6 +1,6 @@
 # Art Gallery Manager
 
-Sistema di gestione per agenti di commercio nel settore delle gallerie d'arte.
+Sistema di gestione per agenti di commercio nel settore delle gallerie d'arte. 
 
 ## 🎨 Caratteristiche
 
